@@ -1,0 +1,9 @@
+;$Id$
+
+name = 'RE jQuery Touch Wipe'
+description = 'Provides the jQuery Touch Wipe plugin to the RE Context Libraries module. Allows you to obtain the wipe event on an iPhone, iPad or iPod Touch which can be used for example to scroll through an image gallery.'
+package = 'Raised Eyebrow Custom Modules'
+dependencies[] = re_contextlibraries
+core = 7.x
+php = 5.2
+version = 7.x-0.1

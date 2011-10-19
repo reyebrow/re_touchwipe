@@ -1,0 +1,51 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Provides the jQuery Cycle javascript library and styles to the RE Context
+ * Libraries module.
+ */
+
+
+// Constants:
+define('RE_JQUERYTOUCHWIPE_MODULE_MACHINE_NAME', 're_jquerytouchwipe');
+define('RE_JQUERYTOUCHWIPE_LIBRARY_MACHINE_NAME', 're_jquerytouchwipe');
+define('RE_JQUERYTOUCHWIPE_LIBRARY_TITLE', 'jQuery Touch Wipe (provided by: re_jquerytouchwipe)');
+
+
+/**
+ * Implementation of hook_define_re_contextlibraries_library()
+ */
+function re_jquerytouchwipe_define_re_contextlibraries_library() {
+  return array(RE_JQUERYTOUCHWIPE_MODULE_MACHINE_NAME . ':' . RE_JQUERYTOUCHWIPE_LIBRARY_MACHINE_NAME => t(RE_JQUERYTOUCHWIPE_LIBRARY_TITLE));
+} // re_jquerytouchwipe_define_re_contextlibraries_library()
+
+
+/**
+ * Implements hook_library().
+ *
+ * Used to register libraries with the system.
+ *
+ * @todo Figure out why dependencies do NOT work here.
+ */
+function re_jquerytouchwipe_library() {
+  $path_to_module = drupal_get_path('module', RE_JQUERYTOUCHWIPE_MODULE_MACHINE_NAME);
+  $libraries[RE_JQUERYTOUCHWIPE_LIBRARY_MACHINE_NAME] = array(
+    'title' => RE_JQUERYTOUCHWIPE_LIBRARY_TITLE, 
+    'website' => 'http://www.netcu.de/jquery-touchwipe-iphone-ipad-library', 
+    'version' => '1.1.1', 
+    'js' => array(
+      $path_to_module . '/js/jquery.touchwipe.min.js' => array(
+        'group' => JS_LIBRARY,
+        'weight' => 4,
+      ),
+      $path_to_module . '/js/re_jquerytouchwipe.js' => array(
+        'group' => JS_LIBRARY,
+        'weight' => 6,
+      ),
+    ),
+    //'dependencies' => array('re_contextlibraries', 're_contextlibraries'),
+  );
+  return $libraries;
+} // re_jquerytouchwipe_library()
