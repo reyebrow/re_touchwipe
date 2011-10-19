@@ -11,7 +11,7 @@
 (function ($) {
   Drupal.behaviors.re_jquerytouchwipe = {
     attach: function(context) {
-    var $slideshow_container =  $('#block-views-re-slideshow-block .view-display-id-block > .view-content > ul');
+    var $slideshow_container =  $('.slideshow .slides > ul');
     $slideshow_container
       .touchwipe({
         wipeLeft: function() {
